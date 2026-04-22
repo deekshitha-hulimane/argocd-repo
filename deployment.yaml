@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: knote
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: knote
+  template:
+    metadata:
+      labels:
+        app: knote
+    spec:
+      containers:
+      - name: knote
+        image: learnk8s/knote-js:1.0.0
+        ports:
+        - containerPort: 3000
